@@ -11,5 +11,17 @@ namespace UsuarioEmail.Entidades
         [Key]
         public int EmailId { get; set; }
         public string Nombre { get; set; }
+
+        public Emails()
+        {
+
+        }
+
+        public Emails(int emailId, string nombre)
+        {
+            EmailId = emailId;
+            Nombre = nombre;
+        }
+
     }
 }

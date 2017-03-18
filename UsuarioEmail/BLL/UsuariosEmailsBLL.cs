@@ -1,14 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using UsuarioEmail.DAL;
 
 namespace UsuarioEmail.BLL
 {
-    public class UsuarioBLL
+    public class UsuariosEmailsBLL
     {
-        public static Entidades.Usuarios Guardar(Entidades.Usuarios n)
+        public static bool Guardar(Entidades.UsuariosEmails n)
         {
             bool retono = false;
             using (var db = new DetalleDb())
@@ -17,9 +18,9 @@ namespace UsuarioEmail.BLL
                 {
 
 
-                    db.usuario.Add(n);
+                    db.usuariosEmails.Add(n);
                     db.SaveChanges();
-                    return n;
+                    retono = true;
 
                 }
                 catch (Exception)
@@ -27,19 +28,20 @@ namespace UsuarioEmail.BLL
 
                     throw;
                 }
+                return retono;
             }
 
         }
 
-        public static Entidades.Usuarios Buscar(int id)
+        public static Entidades.UsuariosEmails Buscar(int id)
         {
 
-            Entidades.Usuarios nuevo;
+            Entidades.UsuariosEmails nuevo;
             using (var db = new DetalleDb())
             {
                 try
                 {
-                    nuevo = db.usuario.Find(id);
+                    nuevo = db.usuariosEmails.Find(id);
 
 
                 }
@@ -52,7 +54,7 @@ namespace UsuarioEmail.BLL
             }
         }
 
-        public static bool Eliminar(Entidades.Usuarios id)
+        public static bool Eliminar(Entidades.UsuariosEmails id)
         {
             using (var db = new DetalleDb())
             {
@@ -70,14 +72,14 @@ namespace UsuarioEmail.BLL
             }
         }
 
-        public static List<Entidades.Usuarios> GetListodo()
+        public static List<Entidades.UsuariosEmails> GetList()
         {
-            List<Entidades.Usuarios> lista = new List<Entidades.Usuarios>();
+            List<Entidades.UsuariosEmails> lista = new List<Entidades.UsuariosEmails>();
             using (var db = new DetalleDb())
             {
                 try
                 {
-                    lista = db.usuario.ToList();
+                    lista = db.usuariosEmails.ToList();
                 }
                 catch (Exception)
                 {
@@ -88,14 +90,14 @@ namespace UsuarioEmail.BLL
             }
         }
 
-        public static List<Entidades.Usuarios> GetListNombre(string nombre)
+        public static List<Entidades.UsuariosEmails> GetList(Expression<Func<Entidades.UsuariosEmails, bool>> criterioBusqueda)
         {
-            List<Entidades.Usuarios> lista = new List<Entidades.Usuarios>();
+            List<Entidades.UsuariosEmails> lista = new List<Entidades.UsuariosEmails>();
             using (var db = new DetalleDb())
             {
                 try
                 {
-                    lista = db.usuario.Where(p => p.Nombre == nombre).ToList();
+                    lista = db.usuariosEmails.Where(criterioBusqueda).ToList();
                 }
                 catch (Exception)
                 {

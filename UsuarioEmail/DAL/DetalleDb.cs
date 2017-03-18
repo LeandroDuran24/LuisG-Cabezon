@@ -14,6 +14,7 @@ namespace UsuarioEmail.DAL
 
         }
         public DbSet<Entidades.Usuarios> usuario { get; set; }
-        public DbSet <Emails> email{ get; set; }
+        public DbSet<Emails> email{ get; set; }
+        public DbSet<Entidades.UsuariosEmails> usuariosEmails { get; set; }
     }
 }

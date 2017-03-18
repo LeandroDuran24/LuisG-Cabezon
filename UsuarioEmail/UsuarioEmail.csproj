@@ -70,6 +70,7 @@
   <ItemGroup>
     <Compile Include="BLL\EmailBLL.cs" />
     <Compile Include="BLL\UsuarioBLL.cs" />
+    <Compile Include="BLL\UsuariosEmailsBLL.cs" />
     <Compile Include="DAL\DetalleDb.cs" />
     <Compile Include="DetalleDbDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -83,6 +84,7 @@
     </Compile>
     <Compile Include="Entidades\Emails.cs" />
     <Compile Include="Entidades\Usuarios.cs" />
+    <Compile Include="Entidades\UsuariosEmails.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>

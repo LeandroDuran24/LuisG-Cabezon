@@ -6,22 +6,23 @@ using System.Text;
 
 namespace UsuarioEmail.Entidades
 {
-    public class Usuarios
+    public class UsuariosEmails
     {
         [Key]
+        public int Id { get; set; }
         public int UsuarioId { get; set; }
-        public string Nombre { get; set; }
+        public int EmailId { get; set; }
 
-        public Usuarios()
+        public UsuariosEmails()
         {
 
         }
 
-        public Usuarios(int usuarioId, string nombre)
+        public UsuariosEmails(int id, int usuarioId, int emailId)
         {
+            Id = id;
             UsuarioId = usuarioId;
-            Nombre = nombre;
+            EmailId = emailId;
         }
-
     }
 }
